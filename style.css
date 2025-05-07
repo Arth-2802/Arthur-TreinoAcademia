@@ -1,13 +1,70 @@
-body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
+:root {
+    --primary: #e11d48; /* vermelho forte */
+    --primary-hover: #be123c; /* vermelho escuro */
+    --accent: #f97316; /* laranja vibrante */
+    --bg: #111827; /* quase preto */
+    --text: #f9fafb; /* branco suave */
+    --card: #1f2937; /* cinza escuro para caixas */
+    --border: #374151; /* borda cinza escura */
+    --radius: 12px;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --transition: 0.3s ease;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    padding: 40px 20px;
+    max-width: 960px;
+    margin: auto;
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+  
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
   }
   
   nav a {
-    margin-right: 10px;
-    cursor: pointer;
-    color: blue;
-    text-decoration: underline;
+    padding: 10px 18px;
+    border-radius: var(--radius);
+    background-color: var(--primary);
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: var(--shadow);
+    transition: background-color var(--transition), transform 0.1s ease;
+  }
+  
+  nav a:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
   
   section {
@@ -16,27 +73,133 @@ body {
   
   section.active {
     display: block;
+    background: var(--card);
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+  
+  section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: var(--accent);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  input,
+  select,
+  textarea {
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    background-color: #111827;
+    color: var(--text);
+    transition: border-color var(--transition);
+  }
+  
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: var(--accent);
+    outline: none;
+  }
+  
+  button {
+    padding: 14px;
+    background-color: var(--primary);
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color var(--transition), transform 0.1s ease;
+  }
+  
+  button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
   }
   
   table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
+    margin-top: 1rem;
+    background-color: var(--card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    color: var(--text);
   }
   
   th, td {
-    border: 1px solid #aaa;
-    padding: 8px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
     text-align: left;
+    font-size: 0.95rem;
   }
   
-  form {
-    max-width: 400px;
+  th {
+    background-color: var(--primary);
+    color: white;
+    font-weight: 600;
   }
   
-  input, select, textarea {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 6px;
+  tr:last-child td {
+    border-bottom: none;
   }
+  
+  @media (max-width: 640px) {
+    nav {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
+    }
+  
+    thead {
+      display: none;
+    }
+  
+    tr {
+      margin-bottom: 1rem;
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+  
+    td {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px;
+      border: none;
+      border-bottom: 1px solid var(--border);
+    }
+  
+    td::before {
+      content: attr(data-label);
+      font-weight: 600;
+      color: var(--accent);
+    }
+  
+    td:last-child {
+      border-bottom: none;
+    }
+  }
+  
+  
   
