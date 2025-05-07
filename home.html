@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Organizador de Treinos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Organizador de Treinos</h1>
+  <nav>
+    <a onclick="showSection('home')">Início</a>
+    <a onclick="showSection('cadastrar')">Cadastrar Treino</a>
+    <a onclick="showSection('listar')">Lista de Treinos</a>
+    <a onclick="showSection('registrar')">Registrar Realização</a>
+    <a onclick="showSection('historico')">Histórico</a>
+  </nav>
+
+  <!-- Início -->
+  <section id="home" class="active">
+    <h2>Bem-vindo!</h2>
+    <p>Use o menu acima para navegar entre as funções do sistema.</p>
+  </section>
+
+  <!-- Cadastrar Treino -->
+  <section id="cadastrar">
+    <h2>Cadastrar Novo Treino</h2>
+    <form id="formTreino">
+      <input type="text" id="nomeTreino" placeholder="Nome do treino" required>
+      <select id="tipoTreino">
+        <option value="cardio">Cardio</option>
+        <option value="forca">Força</option>
+      </select>
+      <input type="number" id="duracaoTreino" placeholder="Duração (min)" required>
+      <button type="submit">Cadastrar</button>
+    </form>
+  </section>
+
+  <!-- Lista de Treinos -->
+  <section id="listar">
+    <h2>Treinos Cadastrados</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Tipo</th>
+          <th>Duração</th>
+        </tr>
+      </thead>
+      <tbody id="tabelaTreinos"></tbody>
+    </table>
+  </section>
+
+  <!-- Registrar Realização -->
+  <section id="registrar">
+    <h2>Registrar Treino Realizado</h2>
+    <form id="formRealizacao">
+      <select id="selectTreino" required></select>
+      <input type="date" id="dataRealizacao" required>
+      <input type="number" id="duracaoReal" placeholder="Duração Real (min)">
+      <textarea id="obsRealizacao" placeholder="Observações"></textarea>
+      <button type="submit">Registrar</button>
+    </form>
+  </section>
+
+  <!-- Histórico -->
+  <section id="historico">
+    <h2>Histórico de Treinos Realizados</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Treino</th>
+          <th>Data</th>
+          <th>Duração</th>
+          <th>Observações</th>
+        </tr>
+      </thead>
+      <tbody id="tabelaHistorico"></tbody>
+    </table>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
