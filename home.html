@@ -7,96 +7,86 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Organizador de Treinos</h1>
-    <nav role="navigation" aria-label="Menu principal">
-      <a href="#" onclick="showSection('home')">Início</a>
-      <a href="#" onclick="showSection('cadastrar')">Cadastrar Treino</a>
-      <a href="#" onclick="showSection('listar')">Lista de Treinos</a>
-      <a href="#" onclick="showSection('registrar')">Registrar Realização</a>
-      <a href="#" onclick="showSection('historico')">Histórico</a>
-    </nav>
-  </header>
+  <h1>Organizador de Treinos</h1>
+  <nav>
+    <a onclick="showSection('home')">Início</a>
+    <a onclick="showSection('cadastrar')">Cadastrar Treino</a>
+    <a onclick="showSection('listar')">Lista de Treinos</a>
+    <a onclick="showSection('registrar')">Registrar Realização</a>
+    <a onclick="showSection('historico')">Histórico</a>
+  </nav>
 
-  <main>
-    <!-- Início -->
-    <section id="home" class="active" aria-labelledby="home-title">
-      <h2 id="home-title">Bem-vindo!</h2>
-      <p>Use o menu acima para navegar entre as funções do sistema.</p>
-    </section>
+  <!-- Início -->
+  <section id="home" class="active">
+    <h2>Bem-vindo!</h2>
+    <p>Use o menu acima para navegar entre as funções do sistema.</p>
+  </section>
 
-    <!-- Cadastrar Treino -->
-    <section id="cadastrar" aria-labelledby="cadastrar-title">
-      <h2 id="cadastrar-title">Cadastrar Novo Treino</h2>
-      <form id="formTreino">
-        <label for="nomeTreino">Nome do treino</label>
-        <input type="text" id="nomeTreino" required placeholder="Ex: Corrida na esteira">
+  <!-- Cadastrar Treino -->
+  <section id="cadastrar">
+    <h2>Cadastrar Novo Treino</h2>
+    <form id="formTreino">
+      <input type="text" id="nomeTreino" placeholder="Nome do treino" required>
+      <select id="tipoTreino" required>
+        <option value="">Selecione o tipo</option>
+        <option value="cardio">Cardio</option>
+        <option value="forca">Força</option>
+        <option value="funcional">Funcional</option>
+        <option value="alongamento">Alongamento</option>
+        <option value="hiit">HIIT</option>
+        <option value="mobilidade">Mobilidade</option>
+        <option value="pilates">Pilates</option>
+        <option value="yoga">Yoga</option>
+      </select>
+      <input type="number" id="duracaoTreino" placeholder="Duração (min)" required>
+      <button type="submit">Cadastrar</button>
+    </form>
+  </section>
 
-        <label for="tipoTreino">Tipo</label>
-        <select id="tipoTreino" required>
-          <option value="cardio">Cardio</option>
-          <option value="forca">Força</option>
-        </select>
+  <!-- Lista de Treinos -->
+  <section id="listar">
+    <h2>Treinos Cadastrados</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Tipo</th>
+          <th>Duração</th>
+        </tr>
+      </thead>
+      <tbody id="tabelaTreinos"></tbody>
+    </table>
+  </section>
 
-        <label for="duracaoTreino">Duração (minutos)</label>
-        <input type="number" id="duracaoTreino" required placeholder="Ex: 30">
+  <!-- Registrar Realização -->
+  <section id="registrar">
+    <h2>Registrar Treino Realizado</h2>
+    <form id="formRealizacao">
+      <select id="selectTreino" required></select>
+      <input type="date" id="dataRealizacao" required>
+      <input type="number" id="duracaoReal" placeholder="Duração Real (min)">
+      <textarea id="obsRealizacao" placeholder="Observações"></textarea>
+      <button type="submit">Registrar</button>
+    </form>
+  </section>
 
-        <button type="submit">Cadastrar Treino</button>
-      </form>
-    </section>
-
-    <!-- Lista de Treinos -->
-    <section id="listar" aria-labelledby="listar-title">
-      <h2 id="listar-title">Treinos Cadastrados</h2>
-      <table aria-label="Lista de treinos">
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Tipo</th>
-            <th>Duração</th>
-          </tr>
-        </thead>
-        <tbody id="tabelaTreinos"></tbody>
-      </table>
-    </section>
-
-    <!-- Registrar Realização -->
-    <section id="registrar" aria-labelledby="registrar-title">
-      <h2 id="registrar-title">Registrar Treino Realizado</h2>
-      <form id="formRealizacao">
-        <label for="selectTreino">Treino</label>
-        <select id="selectTreino" required></select>
-
-        <label for="dataRealizacao">Data</label>
-        <input type="date" id="dataRealizacao" required>
-
-        <label for="duracaoReal">Duração Real (min)</label>
-        <input type="number" id="duracaoReal" placeholder="Ex: 25">
-
-        <label for="obsRealizacao">Observações</label>
-        <textarea id="obsRealizacao" rows="3" placeholder="Ex: Me senti bem, consegui manter o ritmo."></textarea>
-
-        <button type="submit">Registrar</button>
-      </form>
-    </section>
-
-    <!-- Histórico -->
-    <section id="historico" aria-labelledby="historico-title">
-      <h2 id="historico-title">Histórico de Treinos Realizados</h2>
-      <table aria-label="Histórico de treinos">
-        <thead>
-          <tr>
-            <th>Treino</th>
-            <th>Data</th>
-            <th>Duração</th>
-            <th>Observações</th>
-          </tr>
-        </thead>
-        <tbody id="tabelaHistorico"></tbody>
-      </table>
-    </section>
-  </main>
+  <!-- Histórico -->
+  <section id="historico">
+    <h2>Histórico de Treinos Realizados</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Treino</th>
+          <th>Data</th>
+          <th>Duração</th>
+          <th>Observações</th>
+        </tr>
+      </thead>
+      <tbody id="tabelaHistorico"></tbody>
+    </table>
+  </section>
 
   <script src="script.js"></script>
 </body>
 </html>
+
