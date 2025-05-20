@@ -17,26 +17,32 @@
   </nav>
 
   <!-- Início -->
-  <section id="home" class="active">
-    <h2>Bem-vindo!</h2>
-    <p>Use o menu acima para navegar entre as funções do sistema.</p>
-  </section>
+<section id="home" class="active">
+  <h2>👋 Bem-vindo ao Organizador de Treinos!</h2>
+  <p>Este sistema foi criado para ajudar você a manter seus treinos organizados, acompanhar seu progresso e melhorar sua rotina de exercícios.</p>
+  <ul>
+    <li>📋 <strong>Cadastrar Treinos:</strong> Registre novos treinos com tipo e duração.</li>
+    <li>🔎 <strong>Visualizar Lista:</strong> Veja todos os treinos cadastrados com filtros e ordenação.</li>
+    <li>✅ <strong>Registrar Realizações:</strong> Marque os treinos realizados com data e observações.</li>
+    <li>📈 <strong>Acompanhar Histórico:</strong> Consulte o histórico completo dos treinos realizados.</li>
+  </ul>
+  <p>Use o menu acima para acessar cada função. Bom treino! 💪</p>
+</section>
+
 
   <!-- Cadastrar Treino -->
   <section id="cadastrar">
     <h2>Cadastrar Novo Treino</h2>
     <form id="formTreino">
       <input type="text" id="nomeTreino" placeholder="Nome do treino" required>
-      <select id="tipoTreino" required>
+      <select id="tipoTreino">
         <option value="">Selecione o tipo</option>
         <option value="cardio">Cardio</option>
         <option value="forca">Força</option>
-        <option value="funcional">Funcional</option>
-        <option value="alongamento">Alongamento</option>
-        <option value="hiit">HIIT</option>
+        <option value="resistencia">Resistência</option>
         <option value="mobilidade">Mobilidade</option>
-        <option value="pilates">Pilates</option>
-        <option value="yoga">Yoga</option>
+        <option value="equilibrio">Equilíbrio</option>
+        <option value="alongamento">Alongamento</option>
       </select>
       <input type="number" id="duracaoTreino" placeholder="Duração (min)" required>
       <button type="submit">Cadastrar</button>
@@ -46,6 +52,8 @@
   <!-- Lista de Treinos -->
   <section id="listar">
     <h2>Treinos Cadastrados</h2>
+    <input type="text" id="filtroTreino" placeholder="Filtrar por nome...">
+    <button onclick="ordenarPorNome()">Ordenar por Nome</button>
     <table>
       <thead>
         <tr>
@@ -62,7 +70,9 @@
   <section id="registrar">
     <h2>Registrar Treino Realizado</h2>
     <form id="formRealizacao">
-      <select id="selectTreino" required></select>
+      <select id="selectTreino" required>
+        <option value="">Selecione um treino</option>
+      </select>
       <input type="date" id="dataRealizacao" required>
       <input type="number" id="duracaoReal" placeholder="Duração Real (min)">
       <textarea id="obsRealizacao" placeholder="Observações"></textarea>
@@ -89,4 +99,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
